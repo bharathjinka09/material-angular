@@ -1,3 +1,18 @@
+<h1><u>Navbar</u></h1>
+
+<mat-toolbar>
+  <span>Material</span>
+</mat-toolbar>
+
+<mat-toolbar color="primary" class="navbar">
+  <div>Material</div>
+  <div>
+    <span>Home</span>
+    <span>About</span>
+    <span>Contact</span>
+  </div>
+</mat-toolbar>
+<br /><br />
 <h1><u>Typography</u></h1>
 <div class="mat-display-4">Display 4</div>
 <div class="mat-display-3">Display 3</div>
@@ -133,8 +148,345 @@
 </div>
 
 <div>
-  <button color="primary" mat-raised-button (click)="loadData()">Load Data</button>
+  <button color="primary" mat-raised-button (click)="loadData()">
+    Load Data
+  </button>
 </div>
 
+<!-- <h1><u>Sidebar Nav</u></h1>
+<mat-sidenav-container>
+  <mat-sidenav mode="over" [(opened)]="opened">Sidenav</mat-sidenav>
+  <mat-sidenav-content
+    >Main
+    <button color="primary" mat-raised-button (click)="opened = !opened">
+      Open sidebar
+    </button>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<mat-sidenav-container>
+  <mat-sidenav mode="push" [(opened)]="opened">Sidenav</mat-sidenav>
+  <mat-sidenav-content
+    >Main
+    <button color="primary" mat-raised-button (click)="opened = !opened">
+      Open sidebar
+    </button>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<mat-sidenav-container>
+  <mat-sidenav mode="side" [(opened)]="opened">Sidenav</mat-sidenav>
+  <mat-sidenav-content
+    >Main
+    <button color="primary" mat-raised-button (click)="opened = !opened">
+      Open sidebar
+    </button>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" [(opened)]="opened">Sidenav</mat-sidenav>
+  <mat-sidenav-content
+    >Main
+    <button color="primary" mat-raised-button (click)="opened = !opened">
+      Toggle Opened
+    </button>
+    <button color="primary" mat-raised-button (click)="sidenav.open()">
+      Open sidebar
+    </button>
+    <button color="secondary" mat-raised-button (click)="sidenav.close()">
+      <button color="secondary" mat-raised-button (click)="sidenav.toggle()">
+      Toggle sidebar
+    </button>
+  </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+<mat-menu #appMenu="matMenu" xPosition="after" yPosition="above">
+  <button mat-menu-item [matMenuTriggerFor]="subMenu">Frontend</button>
+  <button mat-menu-item [matMenuTriggerFor]="subMenu2">Backend</button>
+</mat-menu>
+<button mat-flat-button [matMenuTriggerFor]="appMenu">Menu</button>
+
+<mat-menu #subMenu="matMenu">
+  <button mat-menu-item>Angular</button>
+  <button mat-menu-item>React</button>
+  <button mat-menu-item>Vue</button>
+</mat-menu>
+
+<mat-menu #subMenu2="matMenu">
+  <button mat-menu-item>Python</button>
+  <button mat-menu-item>Node</button>
+  <button mat-menu-item>Java</button>
+</mat-menu>
+
+<mat-list dense>
+  <mat-list-item>Item 1</mat-list-item>
+  <mat-list-item>Item 2</mat-list-item>
+  <mat-list-item>Item 3</mat-list-item>
+</mat-list>
+
+<mat-nav-list>
+  <a mat-list-item href="#">Home</a>
+  <a mat-list-item href="#">About</a>
+  <a mat-list-item href="#">Contact</a>
+</mat-nav-list>
+
+<mat-list>
+  <mat-list-item>
+    <mat-icon matListIcon>home</mat-icon>
+    <h3 matLine>Heading</h3>
+    <p matLine>Line</p>
+  </mat-list-item>
+  <mat-divider></mat-divider>
+  <mat-list-item>
+    <mat-icon matListIcon>folder</mat-icon>
+    <h3 matLine>Heading 2</h3>
+    <p matLine>Line 2</p>
+  </mat-list-item>
+</mat-list>
+
+<mat-grid-list cols="2">
+  <mat-grid-tile>Title 1</mat-grid-tile>
+  <mat-grid-tile>Title 2</mat-grid-tile>
+  <mat-grid-tile>Title 3</mat-grid-tile>
+  <mat-grid-tile>Title 4</mat-grid-tile>
+</mat-grid-list>
+<br />
+<br />
+
+<mat-grid-list cols="2" rowHeight="100px">
+  <!-- <mat-grid-list cols="2" rowHeight="2:1"> -->
+  <mat-grid-tile rowspan="2">Title 1</mat-grid-tile>
+  <mat-grid-tile>Title 2</mat-grid-tile>
+  <mat-grid-tile>Title 3</mat-grid-tile>
+  <mat-grid-tile>Title 4</mat-grid-tile>
+</mat-grid-list>
+<br />
+<br />
+
+<mat-grid-list cols="2">
+  <mat-grid-tile colspan="2">Title 1</mat-grid-tile>
+  <mat-grid-tile>Title 2</mat-grid-tile>
+  <mat-grid-tile>Title 3</mat-grid-tile>
+  <mat-grid-tile>Title 4</mat-grid-tile>
+</mat-grid-list>
+
+<br />
+<br />
+
+<mat-grid-list cols="2" rowHeight="fit" style="height: 200px" gutterSize="10px">
+  <mat-grid-tile>Title 1</mat-grid-tile>
+  <mat-grid-tile>Title 2</mat-grid-tile>
+  <mat-grid-tile>Title 3</mat-grid-tile>
+  <mat-grid-tile>Title 4</mat-grid-tile>
+</mat-grid-list>
+
+<br />
+
+<h1><u>Accordion</u></h1>
+<mat-accordion multi="true">
+  <!-- <mat-accordion multi="true" hideToggle> -->
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Angular course </mat-panel-title>
+      <mat-panel-description> Total Duration: 3 hours </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is the panel content. Add course details</p>
+    <mat-action-row>
+      <button color="primary" mat-raised-button>Enroll</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title> Python course </mat-panel-title>
+      <mat-panel-description> Total Duration: 3 hours </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>This is the panel content. Add course details</p>
+    <mat-action-row>
+      <button color="primary" mat-raised-button>Enroll</button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+<br /><br />
+
+<h1><u>Cards</u></h1>
+<mat-card>Basic card</mat-card>
+
+<mat-card>
+  <mat-card-title>Card Title</mat-card-title>
+  <mat-card-content>This is Card content</mat-card-content>
+  <mat-card-actions>
+    <button mat-flat-button>Login</button>
+  </mat-card-actions>
+</mat-card>
+<br />
+<br />
+
+<h1><u>Tabs</u></h1>
+<mat-tab-group #tabRef (selectedTabChange)="logChange(tabRef.selectedIndex)">
+  <mat-tab label="Angular">Angular content</mat-tab>
+  <mat-tab label="React">React content</mat-tab>
+  <mat-tab label="Vue">Vue content</mat-tab>
+</mat-tab-group>
+{{ tabRef.selectedIndex }}
+<br />
+<br />
+<h1><u>Horizontal Stepper</u></h1>
+<mat-horizontal-stepper linear>
+  <mat-step label="Shipping Address" completed="true">
+    <p>Shipping Address Details</p>
+  </mat-step>
+  <mat-step label="Billing Address" completed="true" optional>
+    <p>Billing Address Details</p>
+    <div>
+      <button color="primary" mat-button matStepperPrevious>Back</button>
+      <button color="primary" mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Place Order" completed="true">
+    <p>Order Details</p>
+  </mat-step>
+</mat-horizontal-stepper>
+<br />
+<br />
+
+<h1><u>Vertical Stepper</u></h1>
+<mat-vertical-stepper linear>
+  <mat-step label="Shipping Address" completed="true">
+    <p>Shipping Address Details</p>
+  </mat-step>
+  <mat-step label="Billing Address" completed="true" optional>
+    <p>Billing Address Details</p>
+    <div>
+      <button color="primary" mat-button matStepperPrevious>Back</button>
+      <button color="primary" mat-button matStepperNext>Next</button>
+    </div>
+  </mat-step>
+  <mat-step label="Place Order" completed="true">
+    <p>Order Details</p>
+  </mat-step>
+</mat-vertical-stepper>
+<br />
+<br />
+
+<h1><u>Inputs</u></h1>
+<!-- <mat-form-field> -->
+<mat-form-field floatLabel="auto" hideRequiredMarker appearance="legacy">
+  <!-- <mat-form-field floatLabel="never"> -->
+  <!-- <mat-form-field floatLabel="always"> -->
+  <mat-label>Name</mat-label>
+  <input matInput required />
+  <mat-hint align="end">Min 5 characters</mat-hint>
+</mat-form-field>
+
+<br /><br />
+
+<!-- <mat-form-field> -->
+<mat-form-field floatLabel="auto" appearance="standard" color="accent">
+  <!-- <mat-form-field floatLabel="never"> -->
+  <!-- <mat-form-field floatLabel="always"> -->
+  <mat-label>Name</mat-label>
+  <input matInput required />
+  <mat-hint align="end">Min 5 characters</mat-hint>
+</mat-form-field>
+<br /><br />
+
+<!-- <mat-form-field> -->
+<mat-form-field
+  floatLabel="auto"
+  hideRequiredMarker
+  appearance="fill"
+  color="warn"
+>
+  <!-- <mat-form-field floatLabel="never"> -->
+  <!-- <mat-form-field floatLabel="always"> -->
+  <mat-label>Name</mat-label>
+  <input matInput required />
+  <mat-hint align="end">Min 5 characters</mat-hint>
+</mat-form-field>
+
+<br /><br />
+
+<!-- <mat-form-field> -->
+<mat-form-field floatLabel="auto" hideRequiredMarker appearance="outline">
+  <!-- <mat-form-field floatLabel="never"> -->
+  <!-- <mat-form-field floatLabel="always"> -->
+  <mat-label>Name</mat-label>
+  <input matInput required />
+  <mat-hint align="end">Min 5 characters</mat-hint>
+</mat-form-field>
+
+<h1><u>Select Box</u></h1>
+<mat-form-field>
+  <mat-label>Topic</mat-label>
+
+  <mat-select [(value)]="selectedValue">
+    <mat-option>None</mat-option>
+    <mat-option value="angular">Angular</mat-option>
+    <mat-option value="react">React</mat-option>
+    <mat-option value="vue">Vue</mat-option>
+  </mat-select>
+</mat-form-field>
+{{ selectedValue }}
+<br />
+<br />
+
+<mat-form-field>
+  <mat-label>Topic</mat-label>
+
+  <mat-select [(value)]="multiSelectedValue" multiple>
+    <mat-option>None</mat-option>
+
+    <mat-optgroup label="Web">
+      <mat-option value="angular">Angular</mat-option>
+      <mat-option value="react">React</mat-option>
+      <mat-option value="vue">Vue</mat-option>
+    </mat-optgroup>
+
+    <mat-optgroup label="Mobile">
+      <mat-option value="ionic">Ionic</mat-option>
+      <mat-option value="react-native">React Native</mat-option>
+    </mat-optgroup>
+  </mat-select>
+</mat-form-field>
+{{ multiSelectedValue }}
+<br />
+<br />
+<h1><u>AutoComplete</u></h1>
+<!-- <form>
+  <mat-form-field>
+    <input type="text" matInput [matAutocomplete]="auto" />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form> -->
+
+<br />
+<br />
+<form>
+  <mat-form-field>
+    <input
+      type="text"
+      matInput
+      [matAutocomplete]="auto1"
+      [formControl]="myControl"
+    />
+    <mat-autocomplete #auto1="matAutocomplete">
+      <!-- <mat-option *ngFor="let option of objectOptions" [value]="option.name"> -->
+      <mat-option
+        *ngFor="let option of filteredOptions | async"
+        [value]="option"
+      >
+        {{ option }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+</form>
+
+<br />
 <br />
 <br />
