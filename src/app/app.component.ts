@@ -3,6 +3,8 @@ import { FormControl, FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogExampleComponent } from './dialog-example/dialog-example.component';
 
 @Component({
   selector: 'app-root',
@@ -21,10 +23,22 @@ export class AppComponent implements OnInit {
   radioButton: boolean = false;
   checkboxValue: boolean = false;
 
-  constructor(private snackBar: MatSnackBar) {}
+  constructor(private snackBar: MatSnackBar, public dialog: MatDialog) {}
 
-  openSnackbar(message) {
-    this.snackBar.open(message);
+  openSnackbar(message, action) {
+    this.snackBar.open(message, action);
+  }
+
+  deleteItem(message, action) {
+    let snackBarRef = this.snackBar.open(message, action, { duration: 3000 });
+
+    snackBarRef.afterDismissed().subscribe(() => {
+      console.log('Snackbar dismissed');
+    });
+
+    snackBarRef.onAction().subscribe(() => {
+      console.log('Snackbar action triggered');
+    });
   }
 
   minDate = new Date();
@@ -71,4 +85,24 @@ export class AppComponent implements OnInit {
       this.showSpinner = false;
     }, 3000);
   }
+
+  openCustomSnackbar() {
+    this.snackBar.openFromComponent(CustomSnackBarComponent, {
+      duration: 3000,
+    });
+  }
+
+  openDialog() {
+    let dialogRef = this.dialog.open(DialogExampleComponent,{data:{name:'Bharath'}});
+
+    dialogRef.afterClosed().subscribe((result) => {
+      console.log(`Dialog result: ${result}`);
+    });
+  }
 }
+
+@Component({
+  selector: 'custom-snackbar',
+  template: `<span style="color:orange">Custom Snackbar</span>`,
+})
+export class CustomSnackBarComponent {}

@@ -560,9 +560,12 @@
   Hello
 </button>
 
-<button mat-raised-button matTooltip="Hi" matTooltipPosition="below"
-matTooltipShowDelay="2000" 
-matTooltipHideDelay="2000" 
+<button
+  mat-raised-button
+  matTooltip="Hi"
+  matTooltipPosition="below"
+  matTooltipShowDelay="2000"
+  matTooltipHideDelay="2000"
 >
   Hello
 </button>
@@ -570,8 +573,21 @@ matTooltipHideDelay="2000"
 <br />
 <br />
 <h1><u>Snackbar Notifications</u></h1>
-<button mat-button (click)="openSnackbar('Item deleted')">
-  Show Snackbar
+<button mat-button (click)="openSnackbar('Submitted', 'Dismiss')">
+  Submit
 </button>
+<br />
+<button color="warn" mat-button (click)="deleteItem('Item deleted', 'Undo')">
+  Delete
+</button>
+<button color="primary" mat-button (click)="openCustomSnackbar()">
+  Show Custom Snackbar
+</button>
+<br />
+<br />
+
+<h1><u>Dialog</u></h1>
+<button mat-raised-button (click)="openDialog()">Open Dialog</button>
+
 <br />
 <br />
