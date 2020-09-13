@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormsModule } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-root',
@@ -16,6 +17,23 @@ export class AppComponent implements OnInit {
 
   selectedValue: string;
   multiSelectedValue: string;
+
+  radioButton: boolean = false;
+  checkboxValue: boolean = false;
+
+  constructor(private snackBar: MatSnackBar) {}
+
+  openSnackbar(message) {
+    this.snackBar.open(message);
+  }
+
+  minDate = new Date();
+  maxDate = new Date(2019, 3, 10);
+
+  dateFilter = (date) => {
+    const day = date.getDay();
+    return day !== 0 && day !== 6;
+  };
 
   options: string[] = ['Angular', 'React', 'Vue'];
 

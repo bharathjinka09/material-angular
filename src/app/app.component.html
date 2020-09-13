@@ -487,6 +487,91 @@
   </mat-form-field>
 </form>
 
+<h1><u>Checkbox</u></h1>
+<mat-checkbox [(ngModel)]="checkboxValue"> Subscribe </mat-checkbox>
 <br />
+<mat-checkbox labelPosition="before"> Subscribe </mat-checkbox>
+<br />
+<mat-checkbox color="primary"> Subscribe </mat-checkbox>
+<br />
+<mat-checkbox color="warn"> Subscribe </mat-checkbox>
+<br />
+
+{{ checkboxValue }}
+
+<h1><u>Radio Button</u></h1>
+<mat-radio-group [(ngModel)]="radioButton">
+  <mat-radio-button value="angular" color="primary">Angular</mat-radio-button>
+  <mat-radio-button value="react">React</mat-radio-button>
+  <mat-radio-button value="vue" color="warn">Vue</mat-radio-button>
+</mat-radio-group>
+{{ radioButton }}
+<br />
+<br />
+<h1><u>Date Picker</u></h1>
+
+<!-- <input
+  matInput
+  placeholder="Choose a date"
+  [matDatepicker]="creatoDal"
+  (focus)="creatoDal.open()"
+  readonly
+  [min]="minDate"
+  [max]="maxDate"
+/> -->
+
+<!-- filter sunday and saturday to select -->
+<!-- <input
+  matInput
+  placeholder="Choose a date"
+  [matDatepicker]="creatoDal"
+  (focus)="creatoDal.open()"
+  readonly
+  [matDatepickerFilter]="dateFilter"
+/> -->
+<input
+  matInput
+  placeholder="Choose a date"
+  [matDatepicker]="creatoDal"
+  (focus)="creatoDal.open()"
+  readonly
+/>
+<mat-datepicker-toggle matSuffix [for]="creatoDal"></mat-datepicker-toggle>
+<mat-datepicker #creatoDal></mat-datepicker>
+<!-- <mat-datepicker #creatoDal startView="year"></mat-datepicker> -->
+<!-- <mat-datepicker #creatoDal startView="multi-year"></mat-datepicker> -->
+
+<br />
+<br />
+
+<h1><u>Tooltip</u></h1>
+<button mat-raised-button matTooltip="Hi">Hello</button>
+<button mat-raised-button matTooltip="Hi" matTooltipPosition="before">
+  Hello
+</button>
+
+<button mat-raised-button matTooltip="Hi" matTooltipPosition="after">
+  Hello
+</button>
+<button mat-raised-button matTooltip="Hi" matTooltipPosition="above">
+  Hello
+</button>
+<button mat-raised-button matTooltip="Hi" matTooltipPosition="below">
+  Hello
+</button>
+
+<button mat-raised-button matTooltip="Hi" matTooltipPosition="below"
+matTooltipShowDelay="2000" 
+matTooltipHideDelay="2000" 
+>
+  Hello
+</button>
+<!-- 2 seconds delay -->
+<br />
+<br />
+<h1><u>Snackbar Notifications</u></h1>
+<button mat-button (click)="openSnackbar('Item deleted')">
+  Show Snackbar
+</button>
 <br />
 <br />
